@@ -1,0 +1,7 @@
+/vendor/
+/.bundle/
+*.retry
+*.swp
+*.pyc
+.rspec_status
+/node_modules/

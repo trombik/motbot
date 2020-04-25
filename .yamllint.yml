@@ -1,0 +1,13 @@
+---
+extends: default
+
+rules:
+  line-length: disable
+
+  # ansible accepts many forms of trueness
+  truthy: disable
+
+ignore: |
+  # yamllint does not understand erb template
+  vendor
+  node_modules

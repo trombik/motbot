@@ -1,0 +1,7 @@
+{
+    "url": "https://github.com/trombik/motbot/",
+    "devDependencies": {
+        "markdownlint-cli": "^0.22.0",
+        "markdown-toc": "^1.2.0"
+    }
+}
