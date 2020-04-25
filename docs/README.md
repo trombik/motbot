@@ -107,7 +107,7 @@ An entry in the database MUST meet the following requirements:
 - its text SHOULD be neutral point of view. Everyone is biased, but try to be
   neutral.
 - its text MAY include a context to explain the background
-- its text MUST be original, MUST not be copy of others
+- its text MUST be original, or MUST be a tweet with author's permission
 - its media content MUST be either:
   - an URL to the media
   - an original material of the submitter
