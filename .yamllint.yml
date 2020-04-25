@@ -11,3 +11,4 @@ ignore: |
   # yamllint does not understand erb template
   vendor
   node_modules
+  secret.yml
