@@ -30,7 +30,7 @@ to be freed.
 History repeats itself because people forget experiences from the history.
 Sadly, we do. I do. Thais do. You cannot forget if you do not know what
 happened in the first place, which is often the case in Thailand where
-discussion and critical thinking is considered as act of challenging superior,
+discussion and critical thinking is considered as an act of challenging superior,
 or even a threat to _national security_. Thai history needs to be told,
 shared, and kept in our memory.
 
@@ -60,7 +60,7 @@ Ten years ago today, this classic photo was taken at ...
 [a picture follows]
 ```
 
-When a user mentions the bot in a tweet with a pre-defined hash tag, it
+When a user mentions the bot in a tweet with a pre-defined hashtag, it
 forwards the tweet to the project owner as a possible user submission. An
 example:
 
@@ -77,7 +77,7 @@ The bot blocks users when it considers the user is spamming.
 
 The bot does not follow anyone.
 
-The bot does not reply to users when mentioned without a pre-defined hash tag.
+The bot does not reply to users when mentioned without a pre-defined hashtag.
 
 ## Tweets
 
@@ -86,12 +86,12 @@ The bot has a database of tweets. A record of a tweet consists of:
 - text of the tweet
 - zero or more of media contents or URLs
 - date of the event
-- meta data of the tweet, such as `status: disabled`, `creator: @ytrombik`,
+- metadata of the tweet, such as `status: disabled`, `creator: @ytrombik`,
   `tags: redshirts, 2007`
 
-New entry to the database is accepted by submission via GitHub Issues, or
+A new entry to the database is accepted by submission via GitHub Issues, or
 GitHub Pull Request. A submitter MUST have a GitHub account, and, optionally,
-twitter account.
+a twitter account.
 
 Anyone without GitHub account MAY suggest new entry by mentioning the bot in
 their tweet.
@@ -115,7 +115,7 @@ An entry in the database MUST meet the following requirements:
     original copyright holder, or within "Fair use" or "Fair dealing". The
     original copyright holder will be mentioned in the tweet
 
-Additionally, when a user submits by mentioning the bot in Twitter,
+Additionally, when a user submits by mentioning the bot on Twitter,
 
 - The user MUST have tweeted at least 3000 tweets in the past
 - The user account MUST be older than one year
