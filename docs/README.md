@@ -1,5 +1,21 @@
 # Memories of Thailand bot, `motbot`
 
+## Table of Contents
+
+<!-- toc -->
+
+- [Rationale](#rationale)
+- [Purpose](#purpose)
+- [Repository](#repository)
+- [What it does](#what-it-does)
+- [What it doesn't](#what-it-doesnt)
+- [Tweets](#tweets)
+  - [Criteria of submission by users](#criteria-of-submission-by-users)
+- [Roles and responsibilities](#roles-and-responsibilities)
+  - [The owner of the repository](#the-owner-of-the-repository)
+
+<!-- tocstop -->
+
 ## Rationale
 
 Thailand has two versions of its history; a history you are familiar with in
