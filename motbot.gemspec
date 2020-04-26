@@ -3,6 +3,7 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "motbot/version"
+require 'rbconfig'
 
 Gem::Specification.new do |spec|
   spec.name          = "motbot"
@@ -40,4 +41,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.9"
   spec.add_development_dependency "rubocop", "~> 0.82.0"
+  spec.add_development_dependency "guard"
+  if RbConfig::CONFIG["target_os"] =~ /(?i-mx:bsd|dragonfly)/
+    spec.add_development_dependency "rb-kqueue", ">= 0.2"
+  end
+  spec.add_development_dependency "guard-rspec"
 end
