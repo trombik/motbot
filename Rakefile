@@ -8,6 +8,9 @@ require "rspec/core/rake_task"
 require "find"
 require "open3"
 
+RSpec::Core::RakeTask.new(:spec)
+task default: [:spec, :ci]
+
 # rubocop:disable Metrics/BlockLength:
 namespace :test do
   namespace "ci" do
