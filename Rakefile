@@ -56,7 +56,7 @@ namespace :test do
           puts "#{file}: #{l}"
         end
         puts "_____ candidates for .aspell.en.pws starts _____"
-        puts words.uniq.join("\n")
+        puts words.uniq.join("\n").downcase
         puts "_____ candidates for .aspell.en.pws ends   _____"
         raise "aspell failed"
       end
