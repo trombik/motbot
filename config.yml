@@ -1,0 +1,10 @@
+---
+
+lang: en
+twitter:
+  account: GhMakers
+assets:
+  tweet:
+    path: assets/tweets
+  media:
+    path: assets/media
