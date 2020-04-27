@@ -8,7 +8,7 @@ module Motbot
     # Standard error in this class
     class Error < StandardError; end
 
-    ACCESSORS = [:status, :possibly_sensitive, :media_files, :timestamp]
+    ACCESSORS = [:status, :possibly_sensitive, :media_files, :timestamp].freeze
     ACCESSORS.each { |a| attr_accessor a }
 
     # The constructor.

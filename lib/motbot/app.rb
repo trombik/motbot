@@ -20,7 +20,7 @@ module Motbot
       @client = Twitter::REST::Client.new do |config|
         config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
         config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
-        #config.bearer_token        = ENV["TWITTER_BEARER_TOKEN"]
+        # config.bearer_token        = ENV["TWITTER_BEARER_TOKEN"]
 
         config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
         config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
@@ -39,19 +39,19 @@ module Motbot
       @config = YAML.load_file("config.yml")
     end
 
-    # initialize an instance of Motbot
+    # Post tweets.
     def run
-      @logger.info "Hello world"
-      @logger.info "Loading tweets from #{@config['assets']['tweet']['path']}"
-      tweets = load_tweets(@config["assets"]["tweet"]["path"])
-      @logger.info "Loaded tweets: #{tweets.length}"
-      tweets.each do |tweet|
-        if tweet.media_files
-          media = tweet.media_files.map { |file| File.new("#{@config['assets']['media']['path']}/#{file}") }
-          @client.update_with_media(Time.now.id + " " + tweet.status, media)
-        end
+      load_tweets(@config["assets"]["tweet"]["path"]).each do |tweet|
+        update_with_media if tweet.media_files
       end
-      @logger.info "Good bye world"
+    end
+
+    # Post a tweet with media
+    #
+    # @param <Motbot::Tweet> A tweet
+    def update_with_media(tweet)
+      media = tweet.media_files.map { |file| File.new("#{@config['assets']['media']['path']}/#{file}") }
+      @client.update_with_media(Time.now.id + " " + tweet.status, media)
     end
 
     # Load YAML files under configured path
@@ -59,7 +59,6 @@ module Motbot
     # @param [String] path Path to tweet directory
     # @return [Array<Motbot::Tweet>]
     #
-    # rubocop:disable Metrics/MethodLength
     def load_tweets(path)
       tweets = []
       Find.find(path) do |f|
@@ -75,7 +74,6 @@ module Motbot
       end
       tweets
     end
-    # rubocop:enable Metrics/MethodLength
 
     # Compare the timestamp of a tweet and today. if the date matches the
     # current day, returns true.
