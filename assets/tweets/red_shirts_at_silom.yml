@@ -1,0 +1,22 @@
+---
+tweet:
+  status: |
+    Ten years ago today — Bangkok, April 23, 2010. Red Shirts confront riot
+    police at Silom while royalists hold a counter rally at Royal Plaza.
+  media_files:
+    - silom1.jpeg
+    - silom2.jpeg
+    - silom3.jpeg
+  possibly_sensitive: false
+meta:
+  timestamp: 2010-04-23T00:00:00+07:00
+  authors:
+    - @zenjournalist
+  reporters:
+    - @ytrombik
+  sources:
+    - https://twitter.com/zenjournalist/status/1253090832011325442
+  tags:
+    - redshirts
+    - 2010
+    - silom
