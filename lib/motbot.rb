@@ -3,4 +3,3 @@
 require "motbot/version"
 require "motbot/app"
 require "motbot/tweet"
-require "motbot/client"
