@@ -4,7 +4,7 @@ require "logger"
 require "yaml"
 require "time"
 require "find"
-require "motbot/client"
+require "twitter"
 require "motbot/tweet"
 
 # the Applicartion
@@ -17,7 +17,14 @@ module Motbot
     def initialize
       @logger = Logger.new(STDOUT, level: :info)
       @logger.progname = "Motbot::App"
-      @client = Motbot::Client.new
+      @client = Twitter::REST::Client.new do |config|
+        config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
+        config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
+        #config.bearer_token        = ENV["TWITTER_BEARER_TOKEN"]
+
+        config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
+        config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
+      end
       @config = load_config
       @tweets = []
       @now = time_now
@@ -38,6 +45,12 @@ module Motbot
       @logger.info "Loading tweets from #{@config['assets']['tweet']['path']}"
       tweets = load_tweets(@config["assets"]["tweet"]["path"])
       @logger.info "Loaded tweets: #{tweets.length}"
+      tweets.each do |tweet|
+        if tweet.media_files
+          media = tweet.media_files.map { |file| File.new("#{@config['assets']['media']['path']}/#{file}") }
+          @client.update_with_media(Time.now.id + " " + tweet.status, media)
+        end
+      end
       @logger.info "Good bye world"
     end
 
