@@ -42,7 +42,7 @@ module Motbot
     # Post tweets.
     def run
       load_tweets(@config["assets"]["tweet"]["path"]).each do |tweet|
-        update_with_media if tweet.media_files
+        update_with_media(tweet) if tweet.media_files
       end
     end
 
@@ -51,7 +51,7 @@ module Motbot
     # @param <Motbot::Tweet> A tweet
     def update_with_media(tweet)
       media = tweet.media_files.map { |file| File.new("#{@config['assets']['media']['path']}/#{file}") }
-      @client.update_with_media(Time.now.id + " " + tweet.status, media)
+      @client.update_with_media(Time.now.to_i.to_s + " " + tweet.status, media)
     end
 
     # Load YAML files under configured path
