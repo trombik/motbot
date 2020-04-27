@@ -3,14 +3,21 @@
 require "motbot/tweet"
 
 describe Motbot::Tweet do
-  let(:tweet) { Motbot::Tweet.new("foo/bar.yml") }
-  describe "when the tweet data is valid" do
+  context "when the tweet data is valid" do
+    let(:tweet) { Motbot::Tweet.new("foo/bar.yml") }
     let(:hashed_tweet) do
       {
-        status: "Hello world",
-        possibly_sensitive: false,
-        media_files: [],
-        timestamp: "2020-04-26T07:27:55+07:00"
+        "tweet" => {
+          "status" => "Hello world",
+          "possibly_sensitive" => false,
+          "media_files" => []
+        },
+        "meta" => {
+          "authors" => ["@ytrombik"],
+          "reporters" => ["@ytrombik"],
+          "tags" => ["test"],
+          "timestamp" => "2020-04-26T07:27:55+07:00"
+        }
       }
     end
     before(:each) { allow_any_instance_of(Motbot::Tweet).to receive(:load_yaml).and_return(hashed_tweet) }
@@ -22,29 +29,47 @@ describe Motbot::Tweet do
     end
   end
 
-  describe "when the tweet data is invalid" do
+  context "when the tweet data is invalid" do
+    let(:tweet) { Motbot::Tweet.new("foo/bar.yml") }
     let(:status_empty) do
       {
-        status: nil,
-        timestamp: "2020-04-26T07:27:55+07:00"
+        "tweet" => {
+          "possibly_sensitive" => false,
+          "media_files" => []
+        },
+        "meta" => {
+          "authors" => ["@ytrombik"],
+          "reporters" => ["@ytrombik"],
+          "tags" => ["test"],
+          "timestamp" => "2020-04-26T07:27:55+07:00"
+        }
       }
     end
     let(:timestamp_empty) do
       {
-        status: nil,
-        timestamp: "2020-04-26T07:27:55+07:00"
+        "tweet" => {
+          "status" => "Hello world",
+          "possibly_sensitive" => false,
+          "media_files" => []
+        },
+        "meta" => {
+          "authors" => ["@ytrombik"],
+          "reporters" => ["@ytrombik"],
+          "tags" => ["test"],
+          "timestamp" => nil
+        }
       }
     end
 
     describe ".new" do
       it "raises error" do
         allow_any_instance_of(Motbot::Tweet).to receive(:load_yaml).and_return(status_empty)
-        expect { tweet }.to raise_error(Motbot::Tweet::Error)
+        expect { tweet }.to raise_error(Motbot::Tweet::Error::InvalidTweet)
       end
 
       it "raises error" do
         allow_any_instance_of(Motbot::Tweet).to receive(:load_yaml).and_return(timestamp_empty)
-        expect { tweet }.to raise_error(Motbot::Tweet::Error)
+        expect { tweet }.to raise_error(Motbot::Tweet::Error::InvalidTweet)
       end
     end
   end

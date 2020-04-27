@@ -13,8 +13,8 @@ describe "Motbot::App" do
 
   describe "#load_tweets" do
     let(:app) { Motbot::App.new }
-    context "when the directory contains valid tweets" do
-      let(:path) { Pathname.new(__FILE__).dirname.parent + "fixtures" + "valid_tweets" }
+    context "when the directory contains valid assets" do
+      let(:path) { Pathname.new(__FILE__).dirname.parent + "fixtures" + "valid_assets" }
 
       it "raises no error" do
         expect { app.load_tweets(path.to_s) }.not_to raise_error
