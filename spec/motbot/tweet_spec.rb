@@ -8,7 +8,7 @@ describe Motbot::Tweet do
     let(:hashed_tweet) do
       {
         "tweet" => {
-          "status" => "Hello world",
+          "status" => "Hello world,\nfoo",
           "possibly_sensitive" => false,
           "media_files" => []
         },
@@ -25,6 +25,10 @@ describe Motbot::Tweet do
     describe ".new" do
       it "does not throw an error" do
         expect { tweet }.not_to raise_error
+      end
+
+      it "replaces new line in status" do
+        expect(tweet.status).not_to match(/\n/)
       end
     end
   end

@@ -33,6 +33,7 @@ module Motbot
       end
       @meta = t["meta"]
       validate
+      @status = @status.gsub("\n", " ")
     end
 
     # Load YAML file and returns a hash.
