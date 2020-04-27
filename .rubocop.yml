@@ -19,7 +19,9 @@ Style/SymbolArray:
   EnforcedStyle: brackets
 
 Metrics/BlockLength:
-  Exclude: []
+  Exclude:
+    - Guardfile
+    - config/Guardfile
   ExcludedMethods:
     - describe
     - context
