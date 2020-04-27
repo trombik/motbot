@@ -8,8 +8,8 @@ module Motbot
     # Standard error in this class
     class Error < StandardError; end
 
-    attr_accessor :status, :possibly_sensitive, :lat, :long, :place_id,
-                  :display_coordinates, :card_uri, :media_files, :timestamp
+    ACCESSORS = [:status, :possibly_sensitive, :media_files, :timestamp]
+    ACCESSORS.each { |a| attr_accessor a }
 
     # The constructor.
     #

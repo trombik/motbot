@@ -9,19 +9,13 @@ describe Motbot::Tweet do
       {
         status: "Hello world",
         possibly_sensitive: false,
-        lat: 13.3707869,
-        long: 103.8512576,
-        place_id: "Cambodia",
-        display_coordinates: true,
-        card_uri: nil,
         media_files: [],
         timestamp: "2020-04-26T07:27:55+07:00"
       }
     end
+    before(:each) { allow_any_instance_of(Motbot::Tweet).to receive(:load_yaml).and_return(hashed_tweet) }
 
     describe ".new" do
-      before(:each) { allow_any_instance_of(Motbot::Tweet).to receive(:load_yaml).and_return(hashed_tweet) }
-
       it "does not throw an error" do
         expect { tweet }.not_to raise_error
       end
