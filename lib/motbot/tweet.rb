@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "yaml"
+require "pathname"
+require "motbot/tweetrules"
 
 module Motbot
   # Class that represents a tweet
@@ -9,6 +11,8 @@ module Motbot
     class Error
       class InvalidTweet < StandardError; end
     end
+
+    include Motbot::TweetRules
 
     ACCESSORS = [:status, :possibly_sensitive, :media_files].freeze
     ACCESSORS.each { |a| attr_reader a }
@@ -42,9 +46,7 @@ module Motbot
     # Validate the instance, and raise Tweet::Error if the tweet is invalid
     #
     def validate
-      return true unless meta["timestamp"].nil?
-
-      raise Error::InvalidTweet, format("timestamp is required in `meta`: %<path>s", path: @path)
+      raise Error::InvalidTweet unless timestamp? && valid_media_files?
     end
   end
 end

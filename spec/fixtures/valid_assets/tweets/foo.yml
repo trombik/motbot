@@ -3,7 +3,8 @@
 tweet:
   status: |
     Foo
-  media_files: []
+  media_files:
+    - puffy.gif
   possibly_sensitive: false
 meta:
   timestamp: 2020-04-26T07:27:55+07:00
