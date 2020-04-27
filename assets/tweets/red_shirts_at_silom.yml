@@ -11,9 +11,9 @@ tweet:
 meta:
   timestamp: 2010-04-23T00:00:00+07:00
   authors:
-    - @zenjournalist
+    - "@zenjournalist"
   reporters:
-    - @ytrombik
+    - "@ytrombik"
   sources:
     - https://twitter.com/zenjournalist/status/1253090832011325442
   tags:
