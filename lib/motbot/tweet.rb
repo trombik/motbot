@@ -5,11 +5,14 @@ require "yaml"
 module Motbot
   # Class that represents a tweet
   class Tweet
-    # Standard error in this class
-    class Error < StandardError; end
+    # Thrown when loaded data is invalid
+    class Error
+      class InvalidTweet < StandardError; end
+    end
 
-    ACCESSORS = [:status, :possibly_sensitive, :media_files, :timestamp].freeze
-    ACCESSORS.each { |a| attr_accessor a }
+    ACCESSORS = [:status, :possibly_sensitive, :media_files].freeze
+    ACCESSORS.each { |a| attr_reader a }
+    attr_reader :meta
 
     # The constructor.
     #
@@ -18,9 +21,13 @@ module Motbot
     def initialize(path)
       @path = path
       t = load_yaml(@path)
-      t.each_key do |key|
-        instance_variable_set("@#{key}", t[key])
+      ACCESSORS.each do |a|
+        raise Error::InvalidTweet, "cannot find tweet" unless t.key?("tweet")
+        raise Error::InvalidTweet, "cannot find #{a} in tweet" unless t["tweet"].key?(a.to_s)
+
+        instance_variable_set("@#{a}", t["tweet"][a.to_s])
       end
+      @meta = t["meta"]
       validate
     end
 
@@ -29,16 +36,15 @@ module Motbot
     # @param Path to YAML file of the tweet
     #
     def load_yaml(path)
-      YAML.load_file(path).transform_keys(&:to_sym)
+      YAML.load_file(path)
     end
 
     # Validate the instance, and raise Tweet::Error if the tweet is invalid
     #
     def validate
-      return true if !timestamp.nil? && !status.nil?
+      return true unless meta["timestamp"].nil?
 
-      raise Motbot::Tweet::Error,
-            format("timestamp and status are required: %<path>s", path: @path)
+      raise Error::InvalidTweet, format("timestamp is required in `meta`: %<path>s", path: @path)
     end
   end
 end

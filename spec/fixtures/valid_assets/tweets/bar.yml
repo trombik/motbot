@@ -1,0 +1,12 @@
+---
+
+tweet:
+  status: |
+    Bar
+  possibly_sensitive: false
+  media_files: []
+meta:
+  timestamp: 2020-04-26T07:27:55+07:00
+  authors: []
+  reporters: []
+  tags: []
