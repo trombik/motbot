@@ -12,12 +12,9 @@ meta:
   timestamp: 2020-04-22T00:00:00+07:00
   authors:
     - "@zenjournalist"
-  reporters:
-    - "@ytrombik"
-  sources:
-    - https://twitter.com/zenjournalist/status/1252884348044337158
   tags:
     - yellowshirts
     - 2010
     - uneducated
     - uneducate
+  state: disabled

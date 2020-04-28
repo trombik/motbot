@@ -1,0 +1,20 @@
+---
+tweet:
+  status: |
+    Her Majesty Queen Sirikit attended the funeral of an Yellow Shirts
+    protester, Angkana Radappanyawuthi, killed in the October 7 clashes.
+  media_files: []
+  possibly_sensitive: false
+
+meta:
+  timestamp: 2008-10-13
+  authors:
+    - "@ytrombik"
+  sources:
+    - https://www.reuters.com/article/thailand-protest/thai-queen-to-go-to-funeral-of-anti-govt-protester-idUSBKK22147020081013
+  tags:
+    - 2008
+    - yellowshirts
+    - pad
+    - enlightenment
+    - palace
