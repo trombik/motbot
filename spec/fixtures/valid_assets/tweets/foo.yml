@@ -10,7 +10,5 @@ meta:
   timestamp: 2020-04-26T07:27:55+07:00
   authors:
     - "@foo"
-  reporters:
-    - "@ytrombik"
   tags:
     - redshirts
