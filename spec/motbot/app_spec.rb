@@ -49,6 +49,34 @@ describe "Motbot::App" do
     end
   end
 
+  describe "#disabled?" do
+    let(:app) { Motbot::App.new }
+    let(:tweet) { double(Motbot::Tweet) }
+
+    context "when state is disabled" do
+      it "returns true" do
+        allow(tweet).to receive(:meta).and_return({ "state" => "disabled" })
+
+        expect(app.disabled?(tweet)).to be true
+      end
+    end
+
+    context "when state is not disabled" do
+      it "returns false" do
+        allow(tweet).to receive(:meta).and_return({ "state" => "enabled" })
+
+        expect(app.disabled?(tweet)).to be false
+      end
+    end
+
+    context "when state does not exist" do
+      it "returns false" do
+        allow(tweet).to receive(:meta).and_return({})
+
+        expect(app.disabled?(tweet)).to be false
+      end
+    end
+  end
   describe "#today?" do
     let(:app) { Motbot::App.new }
     let(:tweet) { double(Motbot::Tweet) }
@@ -57,12 +85,10 @@ describe "Motbot::App" do
 
     before(:each) do
       allow_any_instance_of(Motbot::App).to receive(:time_now).and_return(now)
-      allow(tweet).to receive(:timestamp).and_return(timestamp)
-      allow(timestamp).to receive(:month).and_return(now.month)
     end
     context "when the event date is yesterday" do
       it "returns false" do
-        allow(timestamp).to receive(:day).and_return(now.day - 1)
+        allow(tweet).to receive(:meta).and_return({ "timestamp" => now - 86_400 })
 
         expect(app.today?(tweet)).to be false
       end
@@ -70,10 +96,20 @@ describe "Motbot::App" do
 
     context "when the event date is today" do
       it "returns true" do
-        allow(timestamp).to receive(:day).and_return(now.day)
+        allow(tweet).to receive(:meta).and_return({ "timestamp" => now })
 
         expect(app.today?(tweet)).to be true
       end
+    end
+
+    context "when the event date is one year ago today"
+    let(:d) { Date.today }
+    let(:last_year) { Date.civil(d.year - 1, d.month, d.day) }
+
+    it "returns true" do
+      allow(tweet).to receive(:meta).and_return({ "timestamp" => last_year })
+
+      expect(app.today?(tweet)).to be true
     end
   end
 end
