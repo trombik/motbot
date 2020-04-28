@@ -41,15 +41,19 @@ module Motbot
 
     # Post tweets.
     def run
-      load_tweets(@config["assets"]["tweet"]["path"]).each do |tweet|
-        next if tweet.meta.key?("state") && tweet.meta["state"] == "disabled"
-
+      tweets = load_tweets(@config["assets"]["tweet"]["path"]).reject { |t| disabled?(t) }
+      tweets.each do |tweet|
         if !tweet.media_files.empty?
           update_with_media(tweet)
         else
           @client.update(tweet.status_str)
         end
       end
+    end
+
+    # true if the tweet is disabled
+    def disabled?(tweet)
+      tweet.meta.key?("state") && tweet.meta["state"] == "disabled"
     end
 
     # Post a tweet with media
