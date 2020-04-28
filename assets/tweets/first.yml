@@ -1,9 +1,44 @@
 ---
 tweet:
+  # Content of the tweet.
   status: |
-    Hello world
+    Hello, world! This is an example tweet. Multiple lines are concatenated in
+    a single line, i.e. you cannot use line feed in a tweet. You should break
+    a line at 80 characters.
+
+  # if possibly_sensitive is true, those who disabled `Display media that may
+  # contain sensitive content` in settings will not see media in the tweet.
   possibly_sensitive: false
+
+  # A list of relative path to images. Images must be under `assets/media`.
+  # The images will be uploaded, and shown in the tweet. You cannot use URLs
+  # here. Maximum number of images is four.
   media_files: []
+
+# Meta data of the tweet
 meta:
+  # Time stamp of the event. Valid formats include:
+  # - ISO 8601 format (https://en.wikipedia.org/wiki/ISO_8601), i.e.
+  #   YYYY-MM-DDThh:mm:ss (without timezone), and YYYY-MM-DDThh:mm:ss+07:00
+  #   (with timezone, UTC+7).
+  # - YYYY-MM-DD
+  #
+  # When the `timestamp` does not include time zone, it is considered as UTC+7
+  # (local time in Thailand).
   timestamp: 2020-04-26T07:27:55+07:00
+
+  # State of the tweet. If state is `disabled`, the tweet will not be posted.
+  # Note: this does not affect posted tweets.
   state: disabled
+
+  # A list of URLs of sources. The URL should be a page where users will find
+  # more details. Usually, a single source is recommended because Twitter will
+  # show _a card_, an descriptive image of the page under the tweet.
+  sources:
+    - https://example.org
+
+  # A list of authors of the tweet. When an item is Twitter account name,
+  # always quote it because `@` is one of special characters in YAML.
+  authors:
+    - "@trombik"
+    - Tomoyuki Sakurai
