@@ -9,10 +9,11 @@ tweet:
   possibly_sensitive: false
 
 meta:
+  timestamp: 2010-05-13T18:00
   authors:
     - "@ytrombik"
   sources:
-    - http://news.bbc.co.uk/2/hi/asia-pacific/8680455.stm
+    - https://www.theguardian.com/world/2010/may/13/gunfire-bangkok-redshirts
   tags:
     - 2010
     - redshirts
