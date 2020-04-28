@@ -25,11 +25,11 @@ meta:
   #
   # When the `timestamp` does not include time zone, it is considered as UTC+7
   # (local time in Thailand).
-  timestamp: 2020-04-26T07:27:55+07:00
+  timestamp: 2020-04-28T07:27:55+07:00
 
   # State of the tweet. If state is `disabled`, the tweet will not be posted.
   # Note: this does not affect posted tweets.
-  state: disabled
+  state: enabled
 
   # A list of URLs of sources. The URL should be a page where users will find
   # more details. Usually, a single source is recommended because Twitter will
