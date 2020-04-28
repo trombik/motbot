@@ -26,8 +26,10 @@ module Motbot
       @path = path
       t = load_yaml(@path)
       ACCESSORS.each do |a|
-        raise Error::InvalidTweet, "cannot find tweet" unless t.key?("tweet")
-        raise Error::InvalidTweet, "cannot find #{a} in tweet" unless t["tweet"].key?(a.to_s)
+        unless t.key?("tweet") && t["tweet"].key?(a.to_s)
+          raise Error::InvalidTweet, \
+                "a tweet must have `tweet` at top level, and `tweet must have `#{a}`"
+        end
 
         instance_variable_set("@#{a}", t["tweet"][a.to_s])
       end
