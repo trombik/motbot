@@ -26,16 +26,18 @@ module Motbot
       @path = path
       t = load_yaml(@path)
       ACCESSORS.each do |a|
-        unless t.key?("tweet") && t["tweet"].key?(a.to_s)
-          raise Error::InvalidTweet, \
-                "a tweet must have `tweet` at top level, and `tweet must have `#{a}`"
+        unless t.key?("tweet") && t["tweet"].is_a?(Hash)
+          raise Error::InvalidTweet,
+                format("a tweet must have `tweet` at top level, and it is a hash: `%<file>s`",
+                       file: @path)
         end
 
-        instance_variable_set("@#{a}", t["tweet"][a.to_s])
+        if t["tweet"].key?(a.to_s)
+          instance_variable_set("@#{a}", t["tweet"][a.to_s])
+        end
       end
       @meta = t["meta"]
       validate
-      @status = @status.gsub("\n", " ")
     end
 
     def config
@@ -60,7 +62,12 @@ module Motbot
     #
     def validate
       @meta["sources"] = [] unless meta.key?("sources")
-      raise Error::InvalidTweet unless timestamp? && valid_media_files?
+      @media_files = [] if @media_files.nil?
+      unless timestamp? && valid_media_files? && status?
+        raise Error::InvalidTweet
+      end
+
+      @status = @status.gsub("\n", " ")
     end
 
     # String of Twitter`status` to post

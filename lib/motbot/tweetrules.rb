@@ -3,6 +3,11 @@
 module Motbot
   # Rules that a tweet must follow
   module TweetRules
+    # Must have status
+    def status?
+      status
+    end
+
     # Must have a timestamp
     def timestamp?
       if meta["timestamp"].nil? || meta["timestamp"].to_s.empty?
