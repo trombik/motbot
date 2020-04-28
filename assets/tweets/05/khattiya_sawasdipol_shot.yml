@@ -9,7 +9,7 @@ tweet:
   possibly_sensitive: false
 
 meta:
-  timestamp: 2010-05-13T18:00
+  timestamp: 2010-05-13
   authors:
     - "@ytrombik"
   sources:
