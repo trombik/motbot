@@ -33,7 +33,8 @@ meta:
 
   # A list of URLs of sources. The URL should be a page where users will find
   # more details. Usually, a single source is recommended because Twitter will
-  # show _a card_, an descriptive image of the page under the tweet.
+  # show _a card_, an descriptive image of the page under the tweet when a
+  # card is available (not all sites have cards, though).
   sources:
     - https://example.org
 
