@@ -1,0 +1,24 @@
+---
+
+tweet:
+  status: |
+    The late King Bhumibol Adulyadej summoned Chamlong Srimuang, and Suchinda
+    Kraprayoon, the leaders of the protestors and the government, to the
+    palace, demanding an end to the confrontation, known as Black May.
+  media_files: []
+  possibly_sensitive: false
+
+meta:
+  timestamp: 1992-05-20
+  authors:
+    - "@ytrombik"
+  sources:
+    - https://www.nytimes.com/1992/05/21/world/disorder-in-thailand-thai-king-uses-his-scepter-sparingly.html
+    - https://www.bbc.com/news/world-asia-37650466
+  tags:
+    - 1992
+    - black_may
+    - bhumibol_adulyadej
+    - bhumibol
+    - chamlong
+    - suchinda
