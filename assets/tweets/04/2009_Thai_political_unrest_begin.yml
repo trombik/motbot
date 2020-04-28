@@ -1,0 +1,16 @@
+---
+tweet:
+  status: |
+    Thoushands of UDD supporters gathered at Government House by the evening,
+    demanding the resignation of the prime minister, Abhisit Vejjajiva. The
+    leaders also called for the resignation of Prem, and Surayud from the
+    Privy Council.
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  timestamp: 2009-04-08
+  sources:
+    - https://www.theguardian.com/world/2009/apr/08/thailand-protests-abhisit-vejjajiva
+  authors:
+    - "@trombik"

@@ -41,5 +41,5 @@ meta:
   # A list of authors of the tweet. When an item is Twitter account name,
   # always quote it because `@` is one of special characters in YAML.
   authors:
-    - "@trombik"
+    - "@ytrombik"
     - Tomoyuki Sakurai
