@@ -1,10 +1,9 @@
 ---
 tweet:
   status: |
-    Ten years ago today, this classic photo was taken at a royalist rally in
-    Bangkok, exposing the hypocrisy and ignorance of the Thais who oppose
-    democracy. If you want to accuse others of stupidity, you have to get your
-    grammar right...
+    This classic photo was taken at a royalist rally in Bangkok, exposing the
+    hypocrisy and ignorance of the Thais who oppose democracy. If you want to
+    accuse others of stupidity, you have to get your grammar right...
   media_files:
     - uneducate.jpeg
   possibly_sensitive: false
