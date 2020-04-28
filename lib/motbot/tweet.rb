@@ -38,6 +38,16 @@ module Motbot
       @status = @status.gsub("\n", " ")
     end
 
+    def config
+      return @config if @config
+
+      @config = load_config
+    end
+
+    def load_config
+      load_yaml("config.yml")
+    end
+
     # Load YAML file and returns a hash.
     #
     # @param Path to YAML file of the tweet

@@ -16,7 +16,7 @@ module Motbot
     def valid_media_files?
       result = true
       media_files.each do |f|
-        file = Pathname.new(@path).parent.parent + "media" + f
+        file = Pathname.new(config["assets"]["media"]["path"]) + f
         unless file.exist? && file.file? && file.readable?
           warn "#{file} in media_files must exist, be a file, and be readable"
           result = false

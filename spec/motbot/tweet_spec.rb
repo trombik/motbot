@@ -3,6 +3,21 @@
 require "motbot/tweet"
 
 describe Motbot::Tweet do
+  before(:each) do
+    allow_any_instance_of(Motbot::Tweet).to receive(:load_config).and_return(
+      {
+        "lang" => "en",
+        "assets" => {
+          "tweet" => {
+            "path" => Pathname.pwd + "spec" + "fixtures" + "valid_assets" + "tweets"
+          },
+          "media" => {
+            "path" => Pathname.pwd + "spec" + "fixtures" + "valid_assets" + "media"
+          }
+        }
+      }
+    )
+  end
   context "when the tweet data is valid" do
     let(:tweet) { Motbot::Tweet.new("foo/bar.yml") }
     let(:hashed_tweet) do

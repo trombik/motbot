@@ -5,6 +5,22 @@ require "time"
 require "pathname"
 
 describe "Motbot::App" do
+  config = {
+    "lang" => "en",
+    "assets" => {
+      "tweet" => {
+        "path" => Pathname.pwd + "spec" + "fixtures" + "valid_assets" + "tweets"
+      },
+      "media" => {
+        "path" => Pathname.pwd + "spec" + "fixtures" + "valid_assets" + "media"
+      }
+    }
+  }
+  before(:each) do
+    allow_any_instance_of(Motbot::App).to receive(:load_config).and_return(config)
+    allow_any_instance_of(Motbot::Tweet).to receive(:load_config).and_return(config)
+  end
+
   describe ".new" do
     it "does not throw error" do
       expect { Motbot::App.new }.not_to raise_error
