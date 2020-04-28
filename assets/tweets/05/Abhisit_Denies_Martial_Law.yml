@@ -1,0 +1,22 @@
+---
+
+tweet:
+  status: |
+    The PM, Abhisit Vejjajiva, said in his televised speech that he has no
+    plan for martial law, saying "All responsibilities rest with me" and
+    "Every decision has been made" without elaborating.
+  media_files: []
+  possibly_sensitive: false
+
+meta:
+  timestamp: 2010-05-02
+  authors:
+    - "@ytrombik"
+  sources:
+
+    - https://www.theguardian.com/world/2010/may/02/thailand-red-shirts-abhisit-vejjajiva
+  tags:
+    - 2010
+    - redshirts
+    - red_shirts
+    - abhisit
