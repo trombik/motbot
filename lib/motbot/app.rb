@@ -43,10 +43,15 @@ module Motbot
     def run
       tweets = load_tweets(@config["assets"]["tweet"]["path"]).reject(&:disabled?)
       tweets.each do |tweet|
-        if !tweet.media_files.empty?
-          update_with_media(tweet)
-        else
-          @client.update(tweet.status_str)
+        begin
+          if !tweet.media_files.empty?
+            update_with_media(tweet)
+          else
+            @client.update(tweet.status_str)
+          end
+        rescue StandardError => e
+          logger.warn("#{e}\n#{e.backtrace}")
+          raise e
         end
       end
     end
