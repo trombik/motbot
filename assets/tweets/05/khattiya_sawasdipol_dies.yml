@@ -1,0 +1,23 @@
+---
+
+tweet:
+  status: |
+    Gen Khattiya Sawasdipol, aka, Seh Daeng, died in a hospital, aged 58,
+    after being shot a few days ago.  His death intensified the clashes
+    between Abhisit government, and the anti-government protestors.
+  media_files: []
+  possibly_sensitive: false
+
+meta:
+  timestamp: 2010-05-13T18:00
+  authors:
+    - "@ytrombik"
+  sources:
+    - http://edition.cnn.com/2010/WORLD/asiapcf/05/16/thailand.anti-government.protests/index.html
+    - https://www.theguardian.com/world/2010/may/17/maj-gen-khattiya-sawasdipol
+  tags:
+    - 2010
+    - redshirts
+    - red_shirts
+    - khattiya
+    - khattiya_sawasdipol
