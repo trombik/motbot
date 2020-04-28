@@ -56,7 +56,11 @@ module Motbot
     end
 
     def post(tweet)
-      !tweet.media_files.empty? ? update_with_media(tweet) : update_without_media(tweet)
+      if !tweet.media_files.empty?
+        update_with_media(tweet)
+      else
+        update_without_media(tweet)
+      end
     end
 
     # Post a tweet without media
@@ -72,7 +76,9 @@ module Motbot
     #
     # @param <Motbot::Tweet> A tweet
     def update_with_media(tweet)
-      media = tweet.media_files.map { |file| File.new("#{@config['assets']['media']['path']}/#{file}") }
+      media = tweet.media_files.map do |file|
+        File.new("#{@config['assets']['media']['path']}/#{file}")
+      end
       status = prefix_str(tweet) + tweet.status_str
       @client.update_with_media(status, media)
       sleep 60
@@ -88,7 +94,9 @@ module Motbot
       elsif how_many_year == 1
         "Last year today: "
       else
-        "#{how_many_year.to_s.reverse.scan(/\d{3}|.+/).join(',').reverse} years ago today: "
+        format("%<when>s years ago today: ",
+               when: how_many_year.to_s.reverse.scan(/\d{3}|.+/) \
+                                  .join(",").reverse)
       end
     end
 
@@ -105,7 +113,7 @@ module Motbot
         begin
           tweet = Motbot::Tweet.new(f)
         rescue StandardError => e
-          @logger.warn("failed to load a tweet from file: #{f}: #{e}\n#{e.backtrace}")
+          @logger.warn("failed to load from file: #{f}: #{e.backtrace}")
           next
         end
         tweets << tweet
@@ -119,7 +127,8 @@ module Motbot
     # @param <Motbot::Tweet>
     # @return true or false
     def today?(tweet)
-      tweet.meta["timestamp"].month == @now.month && tweet.meta["timestamp"].day == @now.day
+      tweet.meta["timestamp"].month == @now.month &&
+        tweet.meta["timestamp"].day == @now.day
     end
 
     # Whether or not the tweet is disabled

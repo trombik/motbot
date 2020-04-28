@@ -28,8 +28,7 @@ module Motbot
       ACCESSORS.each do |a|
         unless t.key?("tweet") && t["tweet"].is_a?(Hash)
           raise Error::InvalidTweet,
-                format("a tweet must have `tweet` at top level, and it is a hash: `%<file>s`",
-                       file: @path)
+                format("must have tweet, is a hash: `%<file>s`", file: @path)
         end
 
         if t["tweet"].key?(a.to_s)
