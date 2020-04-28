@@ -65,9 +65,7 @@ module Motbot
 
     # String of Twitter`status` to post
     def status_str
-      # XXX include Unix time so that same tweet can be posted during
-      # development
-      str = format("#{Time.now.to_i} %<status>s %<sources>s",
+      str = format("%<status>s %<sources>s",
                    status: status,
                    sources: meta["sources"].join(" "))
       str.strip

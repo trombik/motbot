@@ -56,7 +56,16 @@ module Motbot
     end
 
     def post(tweet)
-      !tweet.media_files.empty? ? update_with_media(tweet) : @client.update(tweet.status_str)
+      !tweet.media_files.empty? ? update_with_media(tweet) : update_without_media(tweet)
+    end
+
+    # Post a tweet without media
+    #
+    # @param <Motbot::Tweet>
+    def update_without_media(tweet)
+      status = prefix_str(tweet) + tweet.status_str
+      @client.update(status)
+      sleep 60
     end
 
     # Post a tweet with media
@@ -64,7 +73,23 @@ module Motbot
     # @param <Motbot::Tweet> A tweet
     def update_with_media(tweet)
       media = tweet.media_files.map { |file| File.new("#{@config['assets']['media']['path']}/#{file}") }
-      @client.update_with_media(tweet.status_str, media)
+      status = prefix_str(tweet) + tweet.status_str
+      @client.update_with_media(status, media)
+      sleep 60
+    end
+
+    # Generate prefix string from a tweet
+    #
+    # @param <Motbot::Tweet> A tweet
+    def prefix_str(tweet)
+      how_many_year = time_now.year - tweet.meta["timestamp"].year
+      if how_many_year.zero?
+        "Today: "
+      elsif how_many_year == 1
+        "Last year today: "
+      else
+        "#{how_many_year.to_s.reverse.scan(/\d{3}|.+/).join(',').reverse} years ago today: "
+      end
     end
 
     # Load YAML files under configured path
