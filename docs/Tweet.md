@@ -128,11 +128,12 @@ old tweets.
 
 `sources` is a list of URLs, where users can find the details of the event.
 
-It is recommended to list a single URL, if possible, because Twitter will show
-a Twitter card, a descriptive picture of the page, below the tweet when the
-site has a Twitter card. You can see if the page has a Twitter card at
-[https://cards-dev.twitter.com/validator](https://cards-dev.twitter.com/validator)
-(requires a Twitter account).
+Twitter will show a Twitter card, a descriptive picture of the page, below the
+tweet when the site has a Twitter card. You can see if the page has a Twitter
+card at [https://cards-dev.twitter.com/validator](https://cards-dev.twitter.com/validator)
+(requires a Twitter account). When multiple `sources` are given, Twitter shows
+Twitter card of the _last_ one. See which source has better Twitter card by
+using the Twitter's validator.
 
 URLs for `sources` SHOULD be chosen with care. Rule of thumb:
 
