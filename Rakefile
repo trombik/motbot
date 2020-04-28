@@ -26,6 +26,10 @@ namespace :test do
       sh "yamllint -c .yamllint.yml ."
     end
 
+    task :validate_tweets do
+      sh "bin/validate_tweets"
+    end
+
     task "aspell" do
       puts "Running aspell"
       files = []
