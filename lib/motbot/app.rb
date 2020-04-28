@@ -41,19 +41,20 @@ module Motbot
 
     # Post tweets.
     def run
-      tweets = load_tweets(@config["assets"]["tweet"]["path"]).reject(&:disabled?)
-      tweets.each do |tweet|
+      load_tweets(@config["assets"]["tweet"]["path"]) \
+        .select { |t| enabled_and_today?(t) } \
+        .each do |tweet|
         begin
-          if !tweet.media_files.empty?
-            update_with_media(tweet)
-          else
-            @client.update(tweet.status_str)
-          end
+          post(tweet)
         rescue StandardError => e
           logger.warn("#{e}\n#{e.backtrace}")
-          raise e
+          next
         end
       end
+    end
+
+    def post(tweet)
+      !tweet.media_files.empty? ? update_with_media(tweet) : @client.update(tweet.status_str)
     end
 
     # Post a tweet with media
@@ -91,7 +92,19 @@ module Motbot
     # @param <Motbot::Tweet>
     # @return true or false
     def today?(tweet)
-      tweet.timestamp.month == @now.month && tweet.timestamp.day == @now.day
+      tweet.meta["timestamp"].month == @now.month && tweet.meta["timestamp"].day == @now.day
+    end
+
+    # Whether or not the tweet is disabled
+    #
+    # @param <Motbot::Tweet>
+    # @return true or false
+    def disabled?(tweet)
+      tweet.meta.key?("state") && tweet.meta["state"] == "disabled"
+    end
+
+    def enabled_and_today?(tweet)
+      !disabled?(tweet) && today?(tweet)
     end
   end
 end
