@@ -62,5 +62,10 @@ module Motbot
                    sources: meta["sources"].join(" "))
       str.strip
     end
+
+    # Returns whether of not the tweet is disabled
+    def disabled?
+      meta.key?("state") && meta["state"] == "disabled"
+    end
   end
 end
