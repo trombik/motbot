@@ -8,7 +8,7 @@ describe Motbot::Tweet do
     let(:hashed_tweet) do
       {
         "tweet" => {
-          "status" => "Hello world,\nfoo",
+          "status" => "Hello world,\nfoo  ",
           "possibly_sensitive" => false,
           "media_files" => []
         },
@@ -29,6 +29,12 @@ describe Motbot::Tweet do
 
       it "replaces new line in status" do
         expect(tweet.status).not_to match(/\n/)
+      end
+    end
+
+    describe "#status_str" do
+      it "strips spaces at the end of status" do
+        expect(tweet.status_str).not_to match(/\s$/)
       end
     end
   end
