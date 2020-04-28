@@ -47,7 +47,18 @@ module Motbot
     # Validate the instance, and raise Tweet::Error if the tweet is invalid
     #
     def validate
+      @meta["sources"] = [] unless meta.key?("sources")
       raise Error::InvalidTweet unless timestamp? && valid_media_files?
+    end
+
+    # String of Twitter`status` to post
+    def status_str
+      # XXX include Unix time so that same tweet can be posted during
+      # development
+      str = format("#{Time.now.to_i} %<status>s %<sources>s",
+                   status: status,
+                   sources: meta["sources"].join(" "))
+      str.strip
     end
   end
 end
