@@ -72,7 +72,7 @@ module Motbot
         begin
           tweet = Motbot::Tweet.new(f)
         rescue StandardError => e
-          @logger.warn("failed to load a tweet from file: #{f}: #{e}")
+          @logger.warn("failed to load a tweet from file: #{f}: #{e}\n#{e.backtrace}")
           next
         end
         tweets << tweet
