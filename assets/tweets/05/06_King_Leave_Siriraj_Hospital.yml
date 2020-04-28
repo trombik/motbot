@@ -1,0 +1,15 @@
+---
+tweet:
+  status: |
+    AFP reported that HM King Bhumibol Adulyadej left Siriraj hospital for
+    palace visit, adding "He spoke on television last week for the first time
+    since anti-government protests ... but avoided specific mention of the
+    crisis".
+
+meta:
+  timestamp: 2010-05-06
+  sources:
+    - https://zeenews.india.com/news/world/thai-king-leaves-hospital-for-palace-visit_624378.html
+    - https://thaipoliticalprisoners.wordpress.com/2010/05/06/out-and-back-again/
+  authors:
+    - "@ytrombik"
