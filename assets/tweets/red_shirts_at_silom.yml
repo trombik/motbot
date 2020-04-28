@@ -12,11 +12,8 @@ meta:
   timestamp: 2010-04-23T00:00:00+07:00
   authors:
     - "@zenjournalist"
-  reporters:
-    - "@ytrombik"
-  sources:
-    - https://twitter.com/zenjournalist/status/1253090832011325442
   tags:
     - redshirts
     - 2010
     - silom
+  state: disabled
