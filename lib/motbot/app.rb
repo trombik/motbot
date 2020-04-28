@@ -41,13 +41,15 @@ module Motbot
 
     # Post tweets.
     def run
+      @logger.info("Starting")
       load_tweets(@config["assets"]["tweet"]["path"]) \
         .select { |t| enabled_and_today?(t) } \
         .each do |tweet|
         begin
+          @logger.info("posting tweet #{tweet.status[0, 20]}")
           post(tweet)
         rescue StandardError => e
-          logger.warn("#{e}\n#{e.backtrace}")
+          @logger.warn("#{e}\n#{e.backtrace}")
           next
         end
       end
