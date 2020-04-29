@@ -1,0 +1,14 @@
+---
+tweet:
+  status: |
+    Nick Nostitz, a German photographer, reported his experience in "the
+    killing zone", the on-going crackdown on Red Shirts protest, with his
+    pictures.
+  possibly_sensitive: true
+
+meta:
+  timestamp: 2010-05-16
+  sources:
+    - https://www.newmandala.org/nick-nostitz-in-the-killing-zone/
+  authors:
+    - "@ytrombik"
