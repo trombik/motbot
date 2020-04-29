@@ -66,7 +66,7 @@ namespace :test do
       end
     end
 
-    task all: [:rubocop, :markdownlint, :yamllint, :aspell]
+    task all: [:rubocop, :markdownlint, :yamllint, :aspell, :validate_tweets]
   end
   desc "Run tests performed in CI"
   task ci: ["ci:all"]
