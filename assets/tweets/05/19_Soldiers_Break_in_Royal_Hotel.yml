@@ -1,0 +1,15 @@
+---
+
+tweet:
+  status: |
+    5:30 a.m: Soldiers are clearing protesters against Suchinda Kraprayoon's
+    government from Bangkok's Royal Hotel after two days of the military
+    crackdown on the mass protest against the government of General Suchinda
+    Kraprayoon. #BlackMay
+
+meta:
+  sources:
+    - https://asia.nikkei.com/Politics/Thailand-in-1992-The-black-days-of-May
+  timestamp: 1992-05-19T05:30:00+07:00
+  authors:
+    - "@ytrombik"
