@@ -17,7 +17,8 @@ Tweet files are located under `assets/tweets`.
 
 A file name of Tweet file:
 
-- SHOULD be lower cased
+- SHOULD be [Upper_Camel_Cased](https://en.wikipedia.org/wiki/Camel_case)
+- SHOULD start with the day of the event followed by `_`
 - MUST NOT include spaces
 - MUST end with `.yml`
 - MUST be ASCII characters
