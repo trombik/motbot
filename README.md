@@ -1,6 +1,12 @@
 # `motbot`
 
-The project is at planning phase. See [docs](docs).
+A twitter bot that encourages Thais and non-Thais to understand historical
+events of Thailand in the past and the current context.
+
+## Status
+
+Development version of the bot has been deployed. The twitter account is
+[`@motbot_dev`](https://twitter.com/motbot_dev).
 
 ## Installation
 
