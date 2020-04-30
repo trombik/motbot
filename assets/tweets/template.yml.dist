@@ -1,0 +1,13 @@
+---
+tweet:
+  status: |
+    Hello, world!
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  timestamp: 2020-04-28T07:27:55+07:00
+  sources:
+    - https://example.org
+  authors:
+    - "@ytrombik"
