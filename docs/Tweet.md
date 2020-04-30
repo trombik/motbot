@@ -9,6 +9,8 @@ document describe the file format.
 
 See [example.yml](../assets/tweets/example.yml), which has plenty of comments.
 
+Use [template.yml.dist](../assets/tweets/template.yml.dist) as a template.
+
 ## File
 
 Tweet files are located under `assets/tweets`.
