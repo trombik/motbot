@@ -47,7 +47,7 @@ module Motbot
         .select { |t| enabled_and_today?(t) } \
         .each do |tweet|
         begin
-          @logger.info("posting tweet #{tweet.status[0, 20]}")
+          @logger.info("posting tweet #{tweet.path}")
           post(tweet)
         rescue StandardError => e
           @logger.warn("#{e}\n#{e.backtrace}")
