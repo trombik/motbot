@@ -3,6 +3,7 @@
 require "yaml"
 require "pathname"
 require "twitter-text"
+require "motbot/config"
 
 module Motbot
   # A clas that validate a tweet object
@@ -55,11 +56,7 @@ module Motbot
     end
 
     def load_config
-      load_yaml("config.yml")
-    end
-
-    def load_yaml(file)
-      YAML.load_file(file)
+      Motbot::Config.new("config.yml").config
     end
 
     def valid_media_files?(tweet)

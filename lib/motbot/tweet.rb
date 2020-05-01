@@ -36,22 +36,12 @@ module Motbot
       fixup_defaults
     end
 
-    def config
-      return @config if @config
-
-      @config = load_config
-    end
-
-    def load_config
-      load_yaml("config.yml")
-    end
-
     # Load YAML file and returns a hash.
     #
     # @param Path to YAML file of the tweet
     #
     def load_yaml(path)
-      YAML.load_file(path)
+      Motbot::Config.new(path).config
     end
 
     # Validate the instance, and raise Tweet::Error if the tweet is invalid

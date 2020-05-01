@@ -7,6 +7,8 @@ require "find"
 require "twitter"
 require "motbot/tweet"
 require "motbot/validator"
+require "motbot/config"
+require "pathname"
 
 # the Applicartion
 module Motbot
@@ -15,7 +17,8 @@ module Motbot
 
   # The application class
   class App
-    def initialize
+    def initialize(config_path = Pathname.pwd + "config.yml")
+      @config_path = config_path
       @logger = Logger.new(STDOUT, level: :info)
       @logger.progname = "Motbot::App"
       @client = Twitter::REST::Client.new do |config|
@@ -37,7 +40,7 @@ module Motbot
 
     def load_config
       @config unless @config.nil?
-      @config = YAML.load_file("config.yml")
+      @config = Motbot::Config.new(@config_path).config
     end
 
     # Post tweets.

@@ -5,6 +5,8 @@ require "bundler/setup"
 require "motbot"
 
 puts "validate all tweets"
+config = Motbot::Config.new.config
 bot = Motbot::App.new
 ENV["MOTBOT_STRICT_VALIDATION"] = "yes"
-bot.load_tweets(bot.load_config["assets"]["tweet"]["path"])
+
+bot.load_tweets(config["assets"]["tweet"]["path"])
