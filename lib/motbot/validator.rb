@@ -11,12 +11,12 @@ module Motbot
     MAX_TWEET_LENGTH = 280
 
     def validate_tweet(tweet)
-      valid?(tweet)
       timestamp?(tweet)
       authors?(tweet)
       valid_media_files?(tweet)
-      status?(tweet)
       valid_sources?(tweet)
+      status?(tweet)
+      valid?(tweet)
     end
 
     def valid?(tweet)
