@@ -11,6 +11,11 @@ module Motbot
     include Twitter::TwitterText::Validation
     MAX_TWEET_LENGTH = 280
 
+    def initilize(path = Pathname.pwd + "config.yml")
+      super
+      @config_path = new
+    end
+
     def validate_tweet(tweet)
       timestamp?(tweet)
       authors?(tweet)
@@ -56,7 +61,7 @@ module Motbot
     end
 
     def load_config
-      Motbot::Config.new("config.yml").config
+      Motbot::Config.new(@config_path).config
     end
 
     def valid_media_files?(tweet)
