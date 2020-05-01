@@ -112,10 +112,11 @@ module Motbot
         next if FileTest.directory?(f) || f !~ /\.yml$/
 
         begin
-          tweet = Motbot::Tweet.new(f)
-          validate(tweet)
+          tweet = validate(Motbot::Tweet.new(f))
         rescue StandardError => e
           @logger.warn("failed to load from file: #{f}: #{e} #{e.message}")
+          raise e if ENV["MOTBOT_STRICT_VALIDATION"]
+
           next
         end
         tweets << tweet

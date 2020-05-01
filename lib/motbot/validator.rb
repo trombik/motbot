@@ -17,6 +17,7 @@ module Motbot
       valid_sources?(tweet)
       status?(tweet)
       valid?(tweet)
+      tweet
     end
 
     def valid?(tweet)
