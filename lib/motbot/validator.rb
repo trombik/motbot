@@ -12,6 +12,10 @@ module Motbot
 
     def validate_tweet(tweet)
       valid?(tweet)
+      timestamp?(tweet)
+      authors?(tweet)
+      valid_media_files?(tweet)
+      status?(tweet)
     end
 
     def valid?(tweet)
@@ -27,17 +31,17 @@ module Motbot
       raise Error::Unknown
     end
 
-    def timestamp?(_tweet)
-      raise Error::MissingTimestamp unless meta.key?("timestamp")
-      raise Error::MissingTimestamp if meta["timestamp"].nil?
-      raise Error::MissingTimestamp if meta["timestamp"].to_s.empty?
+    def timestamp?(tweet)
+      raise Error::MissingTimestamp unless tweet.meta.key?("timestamp")
+      raise Error::MissingTimestamp if tweet.meta["timestamp"].nil?
+      raise Error::MissingTimestamp if tweet.meta["timestamp"].to_s.empty?
     end
 
     def authors?(tweet)
       meta = tweet.meta
-      raise Error::MissingAuthors unless meta.key?("authors")
-      raise Error::MissingAuthors unless meta["authors"].is_a?(Array)
-      raise Error::MissingAuthors if meta["authors"].empty?
+      raise Error::MissingAuthors unless tweet.meta.key?("authors")
+      raise Error::MissingAuthors unless tweet.meta["authors"].is_a?(Array)
+      raise Error::MissingAuthors if tweet.meta["authors"].empty?
 
       meta["authors"].each do |a|
         raise Error::InvalidAuthor unless a.is_a?(String)
@@ -50,6 +54,10 @@ module Motbot
 
     def load_config
       load_yaml("config.yml")
+    end
+
+    def load_yaml(file)
+      YAML.load_file(file)
     end
 
     def valid_media_files?(tweet)
