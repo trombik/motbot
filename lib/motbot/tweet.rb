@@ -13,7 +13,7 @@ module Motbot
 
     ACCESSORS = [:status, :possibly_sensitive, :media_files].freeze
     ACCESSORS.each { |a| attr_reader a }
-    attr_reader :meta
+    attr_reader :meta, :path
 
     # The constructor.
     #
