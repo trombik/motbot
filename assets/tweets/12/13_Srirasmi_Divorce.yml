@@ -1,0 +1,17 @@
+---
+tweet:
+  status: |
+    Thai Government published Royal Gazette, stating Princess Srirasmi
+    Suwadee relinquished her royal title. After the divorce with then-Crown
+    Prince Vajiralongkorn, her parents were sentenced to 5 years on alleged
+    Lèse-majesté charge.
+  media_files:
+    - Royal_Gazette_Srirasmi_Divorce.png
+
+meta:
+  timestamp: 2014-12-11
+  sources:
+    - https://www.thairath.co.th/news/local/468957
+    - https://www.theguardian.com/world/2014/dec/13/thai-princess-gives-up-royal-title
+  authors:
+    - "@ytrombik"
