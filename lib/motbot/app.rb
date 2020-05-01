@@ -6,6 +6,7 @@ require "time"
 require "find"
 require "twitter"
 require "motbot/tweet"
+require "motbot/validator"
 
 # the Applicartion
 module Motbot
@@ -111,14 +112,21 @@ module Motbot
         next if FileTest.directory?(f) || f !~ /\.yml$/
 
         begin
-          tweet = Motbot::Tweet.new(f)
+          tweet = validate(Motbot::Tweet.new(f))
         rescue StandardError => e
-          @logger.warn("failed to load from file: #{f}: #{e.backtrace}")
+          @logger.warn("failed to load from file: #{f}: #{e} #{e.message}")
+          raise e if ENV["MOTBOT_STRICT_VALIDATION"]
+
           next
         end
         tweets << tweet
       end
       tweets
+    end
+
+    def validate(tweet)
+      @validator = Motbot::Validator.new
+      @validator.validate_tweet(tweet)
     end
 
     # Compare the timestamp of a tweet and today. if the date matches the

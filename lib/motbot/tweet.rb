@@ -2,7 +2,6 @@
 
 require "yaml"
 require "pathname"
-require "motbot/tweetrules"
 
 module Motbot
   # Class that represents a tweet
@@ -11,8 +10,6 @@ module Motbot
     class Error
       class InvalidTweet < StandardError; end
     end
-
-    include Motbot::TweetRules
 
     ACCESSORS = [:status, :possibly_sensitive, :media_files].freeze
     ACCESSORS.each { |a| attr_reader a }
@@ -36,7 +33,7 @@ module Motbot
         end
       end
       @meta = t["meta"]
-      validate
+      fixup_defaults
     end
 
     def config
@@ -59,13 +56,9 @@ module Motbot
 
     # Validate the instance, and raise Tweet::Error if the tweet is invalid
     #
-    def validate
+    def fixup_defaults
       @meta["sources"] = [] unless meta.key?("sources")
       @media_files = [] if @media_files.nil?
-      unless timestamp? && valid_media_files? && status?
-        raise Error::InvalidTweet
-      end
-
       @status = @status.gsub("\n", " ")
     end
 

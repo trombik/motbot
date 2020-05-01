@@ -4,12 +4,11 @@ tweet:
     Then-Crown Prince Vajiralongkorn sent a letter asking for Princess
     Srirasmi's family to be stripped of their royal name after her seven
     fimily members were arrested. Princess Srirasmi, his third wife, was
-    expected to become Queen when Crown Prince Vajiralongkorn succeeds HM King
-    Bhumibol, who had been hospitalized.
+    expected to become Queen.
 
 meta:
   timestamp: 2014-11-29
   sources:
     - https://www.bbc.com/news/world-asia-30258759
   authors:
-    "@ytrombik"
+    - "@ytrombik"

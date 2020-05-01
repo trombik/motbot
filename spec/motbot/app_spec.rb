@@ -19,6 +19,7 @@ describe "Motbot::App" do
   before(:each) do
     allow_any_instance_of(Motbot::App).to receive(:load_config).and_return(config)
     allow_any_instance_of(Motbot::Tweet).to receive(:load_config).and_return(config)
+    allow_any_instance_of(Motbot::Validator).to receive(:load_config).and_return(config)
   end
 
   describe ".new" do

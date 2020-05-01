@@ -6,4 +6,5 @@ require "motbot"
 
 puts "validate all tweets"
 bot = Motbot::App.new
+ENV["MOTBOT_STRICT_VALIDATION"] = "yes"
 bot.load_tweets(bot.load_config["assets"]["tweet"]["path"])

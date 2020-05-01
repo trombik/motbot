@@ -9,6 +9,8 @@ addons:
     packages:
       - aspell
       - aspell-en
+      # for twitter-text
+      - libidn11-dev
 before_install:
   - pyenv global 3.7
 

@@ -7,6 +7,7 @@ tweet:
 
 meta:
   timestamp: 2010-05-03
-  sources: https://www.reuters.com/article/us-thailand/thai-pm-proposes-nov-poll-in-reconciliation-plan-idUSTRE63H06E20100503
+  sources:
+    - https://www.reuters.com/article/us-thailand/thai-pm-proposes-nov-poll-in-reconciliation-plan-idUSTRE63H06E20100503
   authors:
     - "@ytrombik"
