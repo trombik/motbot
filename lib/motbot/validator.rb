@@ -16,6 +16,7 @@ module Motbot
       authors?(tweet)
       valid_media_files?(tweet)
       status?(tweet)
+      valid_sources?(tweet)
     end
 
     def valid?(tweet)
@@ -78,6 +79,15 @@ module Motbot
       raise Error::MissingStatus unless tweet.status
       raise Error::MissingStatus if tweet.status.length.zero?
     end
+
+    def valid_sources?(tweet)
+      raise Error::InvalidSources unless tweet.meta.key?("sources")
+      raise Error::InvalidSources unless tweet.meta["sources"].is_a?(Array)
+
+      tweet.meta["sources"].each do |s|
+        raise Error::InvalidSources unless s.is_a?(String)
+      end
+    end
   end
 
   # the base class of Error
@@ -119,6 +129,9 @@ module Motbot
     end
 
     class TooManyMediaFiles < Error
+    end
+
+    class InvalidSources < Error
     end
   end
 end

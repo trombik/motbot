@@ -90,6 +90,40 @@ describe Motbot::Validator do
     end
   end
 
+  describe "#valid_sources?" do
+    context "when sources is missing" do
+      it "raises error" do
+        allow(tweet).to receive(:meta).and_return({ "foo" => "foo" })
+
+        expect { obj.valid_sources?(tweet) }.to raise_error(Motbot::Error::InvalidSources)
+      end
+    end
+
+    context "when sources is not an array" do
+      it "raises error" do
+        allow(tweet).to receive(:meta).and_return({ "foo" => {} })
+
+        expect { obj.valid_sources?(tweet) }.to raise_error(Motbot::Error::InvalidSources)
+      end
+    end
+
+    context "when sources is a string" do
+      it "raises error" do
+        allow(tweet).to receive(:meta).and_return({ "sources" => "foo" })
+
+        expect { obj.valid_sources?(tweet) }.to raise_error(Motbot::Error::InvalidSources)
+      end
+    end
+
+    context "when a source is not a string" do
+      it "raises error" do
+        allow(tweet).to receive(:meta).and_return({ "sources" => [{}] })
+
+        expect { obj.valid_sources?(tweet) }.to raise_error(Motbot::Error::InvalidSources)
+      end
+    end
+  end
+
   describe "#authors?" do
     context "when authors is empty" do
       it "raises exception" do
