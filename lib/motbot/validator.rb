@@ -82,6 +82,8 @@ module Motbot
 
   # the base class of Error
   class Error < StandardError
+    attr_accessor :message
+
     def initialize(message = nil)
       super()
       @message = message unless message.nil?
