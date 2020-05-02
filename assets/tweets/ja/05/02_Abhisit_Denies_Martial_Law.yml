@@ -1,0 +1,22 @@
+---
+
+tweet:
+  status: |
+    タイのアピシット首相がテレビ演説で戒厳令の可能性を否定し、「すべての責任は
+    自分にある」「すべての決断はなされている」などと述べたが、具体策については
+    何も明言しなかった。
+  media_files: []
+  possibly_sensitive: false
+
+meta:
+  timestamp: 2010-05-02
+  authors:
+    - "@ytrombik"
+  sources:
+
+    - https://www.theguardian.com/world/2010/may/02/thailand-red-shirts-abhisit-vejjajiva
+  tags:
+    - 2010
+    - redshirts
+    - red_shirts
+    - abhisit
