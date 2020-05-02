@@ -23,7 +23,7 @@ environment.
 `TWITTER_ACCESS_TOKENS` is a list of user access tokens, separated by space.
 Others are same. The order of tokens, secrets, and languages does matter.
 
-```
+```console
 export TWITTER_ACCESS_TOKENS="USER_A_TOKEN USER_B_TOKEN"
 export TWITTER_ACCESS_SECRETS="USER_A_SECRET USER_B_SECRET"
 export MOTBOT_LANGS="USER_A_LANG USER_B_LANG"
