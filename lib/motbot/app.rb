@@ -40,7 +40,9 @@ module Motbot
       @logger.info("Starting")
       accounts.each do |account|
         @logger.info("Processing language #{account.lang}")
-        load_tweets(@config["assets"]["tweet"]["path"][account.lang]) \
+        load_tweets(
+          Pathname.new(@config["assets"]["tweet"]["path"]) + account.lang
+        ) \
           .select { |t| enabled_and_today?(t) } \
           .each do |tweet|
           begin
