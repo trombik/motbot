@@ -35,30 +35,38 @@ module Motbot
     end
 
     # Post tweets.
+    # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     def run
       @logger.info("Starting")
-      load_tweets(@config["assets"]["tweet"]["path"]) \
-        .select { |t| enabled_and_today?(t) } \
-        .each do |tweet|
-        accounts.each do |account|
+      accounts.each do |account|
+        @logger.info("Processing language #{account.lang}")
+        load_tweets(@config["assets"]["tweet"]["path"][account.lang]) \
+          .select { |t| enabled_and_today?(t) } \
+          .each do |tweet|
           begin
             @logger.info("posting tweet #{tweet.path}")
             post(account, tweet)
           rescue StandardError => e
             @logger.warn("#{e}\n#{e.backtrace}")
-            next
           end
         end
       end
+      @logger.info("Finished")
     end
+    # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
     def accounts
       return @accounts unless @accounts.empty?
 
       tokens = ENV["TWITTER_ACCESS_TOKENS"].split(/\s+/)
       secrets = ENV["TWITTER_ACCESS_SECRETS"].split(/\s+/)
+      langs = ENV["MOTBOT_LANGS"].split(/\s+/)
       tokens.each_with_index do |val, index|
-        @accounts << Motbot::Account.new(token: val, secret: secrets[index])
+        @accounts << Motbot::Account.new(
+          token: val,
+          secret: secrets[index],
+          lang: langs[index]
+        )
       end
       @accounts
     end
