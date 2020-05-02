@@ -7,6 +7,7 @@ require "find"
 require "twitter"
 require "motbot/tweet"
 require "motbot/validator"
+require "motbot/account"
 
 # the Applicartion
 module Motbot
@@ -18,17 +19,10 @@ module Motbot
     def initialize
       @logger = Logger.new(STDOUT, level: :info)
       @logger.progname = "Motbot::App"
-      @client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = ENV["TWITTER_CONSUMER_KEY"]
-        config.consumer_secret     = ENV["TWITTER_CONSUMER_SECRET"]
-        # config.bearer_token        = ENV["TWITTER_BEARER_TOKEN"]
-
-        config.access_token        = ENV["TWITTER_ACCESS_TOKEN"]
-        config.access_token_secret = ENV["TWITTER_ACCESS_SECRET"]
-      end
       @config = load_config
       @tweets = []
       @now = time_now
+      @accounts = []
     end
 
     def time_now
@@ -46,42 +40,55 @@ module Motbot
       load_tweets(@config["assets"]["tweet"]["path"]) \
         .select { |t| enabled_and_today?(t) } \
         .each do |tweet|
-        begin
-          @logger.info("posting tweet #{tweet.path}")
-          post(tweet)
-        rescue StandardError => e
-          @logger.warn("#{e}\n#{e.backtrace}")
-          next
+        accounts.each do |account|
+          begin
+            @logger.info("posting tweet #{tweet.path}")
+            post(account, tweet)
+          rescue StandardError => e
+            @logger.warn("#{e}\n#{e.backtrace}")
+            next
+          end
         end
       end
     end
 
-    def post(tweet)
+    def accounts
+      return @accounts unless @accounts.empty?
+
+      tokens = ENV["TWITTER_ACCESS_TOKENS"].split(/\s+/)
+      secrets = ENV["TWITTER_ACCESS_SECRETS"].split(/\s+/)
+      tokens.each_with_index do |val, index|
+        @accounts << Motbot::Account.new(token: val, secret: secrets[index])
+      end
+      @accounts
+    end
+
+    def post(account, tweet)
       if !tweet.media_files.empty?
-        update_with_media(tweet)
+        update_with_media(account, tweet)
       else
-        update_without_media(tweet)
+        update_without_media(account, tweet)
       end
     end
 
     # Post a tweet without media
     #
     # @param <Motbot::Tweet>
-    def update_without_media(tweet)
+    def update_without_media(account, tweet)
       status = prefix_str(tweet) + tweet.status_str
-      @client.update(status)
+      account.client.update(status)
       sleep 60
     end
 
     # Post a tweet with media
     #
     # @param <Motbot::Tweet> A tweet
-    def update_with_media(tweet)
+    def update_with_media(account, tweet)
       media = tweet.media_files.map do |file|
         File.new("#{@config['assets']['media']['path']}/#{file}")
       end
       status = prefix_str(tweet) + tweet.status_str
-      @client.update_with_media(status, media)
+      account.client.update_with_media(status, media)
       sleep 60
     end
 
