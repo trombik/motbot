@@ -18,6 +18,9 @@ Style/StringLiterals:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
+Metrics/ClassLength:
+  Max: 150
+
 Metrics/BlockLength:
   Exclude:
     - Guardfile
