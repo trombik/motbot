@@ -8,6 +8,11 @@ events of Thailand in the past and the current context.
 Development version of the bot has been deployed. The twitter account is
 [`@motbot_dev`](https://twitter.com/motbot_dev).
 
+Production accounts have been deployed. Please follow:
+
+- [`@motbot_en`](https://twitter.com/motbot_en) for English
+- [`@motbot_ja`](https://twitter.com/motbot_ja) for Japanese
+
 ## Installation
 
 ## Usage
