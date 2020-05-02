@@ -2,6 +2,7 @@
 
 require "yaml"
 require "pathname"
+require "motbot/pretext"
 
 module Motbot
   # Class that represents a tweet
@@ -13,7 +14,7 @@ module Motbot
 
     ACCESSORS = [:status, :possibly_sensitive, :media_files].freeze
     ACCESSORS.each { |a| attr_reader a }
-    attr_reader :meta, :path
+    attr_reader :meta, :path, :lang
 
     # The constructor.
     #
@@ -58,13 +59,17 @@ module Motbot
     #
     def fixup_defaults
       @meta["sources"] = [] unless meta.key?("sources")
+      @meta["lang"] = "en" unless meta.key?("lang")
       @media_files = [] if @media_files.nil?
       @status = @status.gsub("\n", " ")
     end
 
     # String of Twitter`status` to post
     def status_str
-      str = format("%<status>s %<sources>s",
+      str = format("%<pretext>s%<status>s %<sources>s",
+                   pretext: Motbot::PreText.new(
+                     lang: meta["lang"], timestamp: meta["timestamp"]
+                   ).to_s,
                    status: status,
                    sources: meta["sources"].join(" "))
       str.strip
