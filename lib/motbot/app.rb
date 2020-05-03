@@ -85,7 +85,7 @@ module Motbot
     #
     # @param <Motbot::Tweet>
     def update_without_media(account, tweet)
-      status = prefix_str(tweet) + tweet.status_str
+      status = tweet.status_str
       account.client.update(status)
       sleep 60
     end
@@ -97,25 +97,9 @@ module Motbot
       media = tweet.media_files.map do |file|
         File.new("#{@config['assets']['media']['path']}/#{file}")
       end
-      status = prefix_str(tweet) + tweet.status_str
+      status = tweet.status_str
       account.client.update_with_media(status, media)
       sleep 60
-    end
-
-    # Generate prefix string from a tweet
-    #
-    # @param <Motbot::Tweet> A tweet
-    def prefix_str(tweet)
-      how_many_year = time_now.year - tweet.meta["timestamp"].year
-      if how_many_year.zero?
-        "Today: "
-      elsif how_many_year == 1
-        "Last year today: "
-      else
-        format("%<when>s years ago today: ",
-               when: how_many_year.to_s.reverse.scan(/\d{3}|.+/) \
-                                  .join(",").reverse)
-      end
     end
 
     # Load YAML files under configured path
@@ -131,7 +115,8 @@ module Motbot
         begin
           tweet = validate(Motbot::Tweet.new(f))
         rescue StandardError => e
-          @logger.warn("failed to load from file: #{f}: #{e} #{e.message}")
+          @logger.warn("failed to load from file: " \
+                      "#{f}: #{e} #{e.message}\n#{e.backtrace.join("\n")}")
           raise e if ENV["MOTBOT_STRICT_VALIDATION"]
 
           next

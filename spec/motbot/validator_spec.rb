@@ -3,6 +3,8 @@
 require "motbot/validator"
 require "motbot/tweet"
 
+N_MAX_TWEET_CHARACTER = 280
+
 describe Motbot::Validator do
   before(:each) do
   end
@@ -10,9 +12,9 @@ describe Motbot::Validator do
   let(:tweet) { double(Motbot::Tweet) }
 
   describe "#valid?" do
-    context "when tweet is valid" do
+    context "when tweet is not longer than N_MAX_TWEET_CHARACTER" do
       it "returns true" do
-        allow(tweet).to receive(:status_str).and_return("XXX years ago today: " + ("x" * 238))
+        allow(tweet).to receive(:status_str).and_return("x" * N_MAX_TWEET_CHARACTER)
 
         expect(obj.valid?(tweet)).to be true
       end
@@ -20,7 +22,7 @@ describe Motbot::Validator do
 
     context "when tweet is too long" do
       it "raises exception" do
-        allow(tweet).to receive(:status_str).and_return("XXX years ago today: " + ("x" * 239))
+        allow(tweet).to receive(:status_str).and_return(("x" * (N_MAX_TWEET_CHARACTER + 1)))
 
         expect { obj.valid?(tweet) }.to raise_error(Motbot::Error::TweetTooLong)
       end

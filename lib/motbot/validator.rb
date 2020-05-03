@@ -21,8 +21,7 @@ module Motbot
     end
 
     def valid?(tweet)
-      status_str = "XXX years ago today: " + tweet.status_str
-      r = parse_tweet(status_str)
+      r = parse_tweet(tweet.status_str)
       return true if r[:valid]
 
       if r[:weighted_length] > MAX_TWEET_LENGTH

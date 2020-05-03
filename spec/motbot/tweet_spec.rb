@@ -31,7 +31,8 @@ describe Motbot::Tweet do
           "authors" => ["@ytrombik"],
           "reporters" => ["@ytrombik"],
           "tags" => ["test"],
-          "timestamp" => "2020-04-26T07:27:55+07:00"
+          "timestamp" => "2020-04-26T07:27:55+07:00",
+          "lang" => "en"
         }
       }
     end
@@ -44,12 +45,6 @@ describe Motbot::Tweet do
 
       it "replaces new line in status" do
         expect(tweet.status).not_to match(/\n/)
-      end
-    end
-
-    describe "#status_str" do
-      it "strips spaces at the end of status" do
-        expect(tweet.status_str).not_to match(/\s$/)
       end
     end
   end

@@ -170,3 +170,9 @@ Valid values of `authors` include:
 - Twitter account name
 
 `authors` is mandatory.
+
+#### `lang`
+
+`lang` is the language in which the tweet is written.
+
+`lang` is optional. The default is `en`.
