@@ -1,0 +1,12 @@
+---
+tweet:
+  status: |
+    憲法裁判所が人民の力党の解党を命令した。人民の力党は、2007年のクーデター後
+    に解党されたタイ愛国党の党員によって設立された、タクシン元首相の支持母体。
+meta:
+  timestamp: 2008-12-02
+  sources:
+    - https://www.theguardian.com/world/2008/dec/02/analysis-thailand-government-judicial-coup
+    - https://www.theguardian.com/world/2008/dec/02/thailand-protests-government-court-somchai
+  authors:
+    - "@trombik"
