@@ -1,0 +1,24 @@
+---
+
+tweet:
+  status: |
+    数日前にインタビュー中に狙撃された、セデーンの愛称で知られるKhattiya
+    Sawasdipol将軍が入院先の病院で死亡する。享年58。将軍の死はアピシット政権と
+    反政府デモ隊との衝突を激化させることになる。
+  media_files: []
+  possibly_sensitive: false
+
+meta:
+  lang: ja
+  timestamp: 2010-05-17T18:00:00
+  authors:
+    - "@ytrombik"
+  sources:
+    - http://edition.cnn.com/2010/WORLD/asiapcf/05/16/thailand.anti-government.protests/index.html
+    - https://www.theguardian.com/world/2010/may/17/maj-gen-khattiya-sawasdipol
+  tags:
+    - 2010
+    - redshirts
+    - red_shirts
+    - khattiya
+    - khattiya_sawasdipol
