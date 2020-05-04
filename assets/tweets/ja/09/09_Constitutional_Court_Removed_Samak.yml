@@ -1,0 +1,12 @@
+---
+tweet:
+  status: |
+    タイの憲法裁判所がサマック首相がテレビの料理番組に出演し、謝礼を受け取った
+    こに対して有罪判決を下す。首相在任中に企業から現金を受け取ったのは違憲にあ
+    たるとした。これにより首相は失職することになる。
+meta:
+  timestamp: 2008-09-09
+  sources:
+    - http://news.bbc.co.uk/2/hi/asia-pacific/7605838.stm
+  authors:
+    - "@ytrombik"
