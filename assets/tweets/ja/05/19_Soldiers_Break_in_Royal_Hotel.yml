@@ -1,0 +1,14 @@
+---
+
+tweet:
+  status: |
+    午前5時30分 兵士がバンコクのロイヤルホテルからデモ隊の排除を開始する。スチ
+    ンダー政権に対する反政府デモの弾圧開始から2日が経過している。#BlackMay
+
+meta:
+  lang: ja
+  sources:
+    - https://asia.nikkei.com/Politics/Thailand-in-1992-The-black-days-of-May
+  timestamp: 1992-05-19T05:30:00+07:00
+  authors:
+    - "@ytrombik"

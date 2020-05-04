@@ -9,6 +9,7 @@ tweet:
   possibly_sensitive: false
 
 meta:
+  lang: ja
   timestamp: 2010-05-02
   authors:
     - "@ytrombik"

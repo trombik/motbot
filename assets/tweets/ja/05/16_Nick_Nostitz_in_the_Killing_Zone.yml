@@ -1,0 +1,14 @@
+---
+tweet:
+  status: |
+    ドイツ人フォトジャーナリストのNick Nostitzが、進行中の赤シャツデモ隊に対す
+    る鎮圧作戦を写真とともに報じる。
+  possibly_sensitive: true
+
+meta:
+  lang: ja
+  timestamp: 2010-05-16
+  sources:
+    - https://www.newmandala.org/nick-nostitz-in-the-killing-zone/
+  authors:
+    - "@ytrombik"
