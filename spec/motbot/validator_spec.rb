@@ -165,5 +165,13 @@ describe Motbot::Validator do
         expect { obj.authors?(tweet) }.not_to raise_error
       end
     end
+
+    context "when status is not UTF-8" do
+      it "raises exception" do
+        allow(tweet).to receive(:status).and_return("日本語".encode("euc-jp"))
+
+        expect { obj.utf8?(tweet) }.to raise_error(Motbot::Error::InvalidFileEncoding)
+      end
+    end
   end
 end

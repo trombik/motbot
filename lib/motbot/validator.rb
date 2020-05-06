@@ -3,6 +3,7 @@
 require "yaml"
 require "pathname"
 require "twitter-text"
+require "rchardet"
 
 module Motbot
   # A clas that validate a tweet object
@@ -17,6 +18,7 @@ module Motbot
       valid_sources?(tweet)
       status?(tweet)
       valid?(tweet)
+      utf8?(tweet)
       tweet
     end
 
@@ -88,6 +90,16 @@ module Motbot
         raise Error::InvalidSources unless s.is_a?(String)
       end
     end
+
+    def utf8?(tweet)
+      enc = CharDet.detect(tweet.status)["encoding"]
+      case enc
+      when "ascii", "utf-8", "ISO-8859-2"
+        true
+      else
+        raise Error::InvalidFileEncoding, "invalid encording: `#{enc}`"
+      end
+    end
   end
 
   # the base class of Error
@@ -132,6 +144,9 @@ module Motbot
     end
 
     class InvalidSources < Error
+    end
+
+    class InvalidFileEncoding < Error
     end
   end
 end
