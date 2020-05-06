@@ -3,6 +3,7 @@ PATH
   specs:
     motbot (0.1.0)
       omniauth-twitter (~> 1.4.0)
+      rchardet (~> 1.8.0)
       sinatra (~> 2.0.8)
       twitter (~> 7.0)
       twitter-text (~> 3.1.0)
@@ -92,6 +93,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rchardet (1.8.0)
     rexml (3.2.4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
