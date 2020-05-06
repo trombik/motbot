@@ -3,6 +3,7 @@
 require "sinatra"
 require "omniauth-twitter"
 require "yaml"
+require "cgi"
 
 # rubocop:disable Metrics/BlockLength
 configure do
@@ -37,11 +38,11 @@ configure do
 
   get "/" do
     "<html><head></head><body>" \
-      "<h1>Hello " + session[:name] + "!</h1>" \
-      "<p>token: " + session[:token] + "</p>" \
-      "<p>secret: " + session[:secret] + "</p>" \
+      "<h1>Hello " +  CGI.escapeHTML(session[:name]) + "!</h1>" \
+      "<p>token: " +  CGI.escapeHTML(session[:token]) + "</p>" \
+      "<p>secret: " + CGI.escapeHTML(session[:secret]) + "</p>" \
       "<pre>" + \
-      env.to_yaml + \
+      CGI.escapeHTML(env.to_yaml) + \
       "</pre>" \
       "</body></html>"
   end
