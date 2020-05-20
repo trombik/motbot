@@ -1,0 +1,22 @@
+---
+
+tweet:
+  status: |
+    プミポン国王がスチンダー将軍と反体制デモリーダーを王宮に呼び出し、「暗黒の5月」と呼ばれることになる政府軍とデモ隊の衝突を止めるよう指示する。
+  media_files: []
+  possibly_sensitive: false
+
+meta:
+  timestamp: 1992-05-20
+  authors:
+    - "@ytrombik"
+  sources:
+    - https://www.nytimes.com/1992/05/21/world/disorder-in-thailand-thai-king-uses-his-scepter-sparingly.html
+    - https://www.bbc.com/news/world-asia-37650466
+  tags:
+    - 1992
+    - black_may
+    - bhumibol_adulyadej
+    - bhumibol
+    - chamlong
+    - suchinda

@@ -1,0 +1,14 @@
+---
+tweet:
+  status: |
+    Prayut陸軍司令官が戒厳令を発令する。声明の中で「危機にあたって介入するのが
+    軍の責任だ」と、1941年の戒厳令に関する法律を引用する。
+  possibly_sensitive: false
+  media_files: []
+meta:
+  sources:
+    - https://foreignpolicy.com/2014/05/20/meet-the-law-at-the-heart-of-thailands-pseudo-coup/
+    - https://www.bbc.com/news/world-asia-27480845
+  timestamp: 2014-05-20
+  authors:
+    - "@ytrombik"
