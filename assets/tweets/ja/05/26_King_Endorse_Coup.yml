@@ -1,0 +1,17 @@
+---
+tweet:
+  status: |
+    プミポン国王が2014年クーデターを承認する。国王は過去のクーデターも支持し、
+    1976年のクーデターも支持していた。直前には「10月6日」と呼ばれる軍と警察に
+    よる学生の虐殺が起きており、公式記録では46人、非公式には100人以上が殺され
+    たとされている
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  lang: ja
+  timestamp: 2014-05-22
+  sources:
+    - https://www.bbc.com/news/world-asia-27517591
+  authors:
+    - "@ytrombik"

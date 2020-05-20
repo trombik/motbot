@@ -1,0 +1,16 @@
+---
+tweet:
+  status: |
+    King Bhumibol formaly endorsed 2014 coup. The king had approved major
+    coups in Thai history, including 1976 coup, in which, officially 46,
+    unofficially more than 100, sutudents were killed by RTA, and police,
+    known as 6 October event.
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  timestamp: 2014-05-22
+  sources:
+    - https://www.bbc.com/news/world-asia-27517591
+  authors:
+    - "@ytrombik"
