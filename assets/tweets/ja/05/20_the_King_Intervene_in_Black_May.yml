@@ -7,6 +7,7 @@ tweet:
   possibly_sensitive: false
 
 meta:
+  lang: ja
   timestamp: 1992-05-20
   authors:
     - "@ytrombik"

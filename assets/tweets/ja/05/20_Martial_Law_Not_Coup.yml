@@ -6,6 +6,7 @@ tweet:
   possibly_sensitive: false
   media_files: []
 meta:
+  lang: ja
   sources:
     - https://foreignpolicy.com/2014/05/20/meet-the-law-at-the-heart-of-thailands-pseudo-coup/
     - https://www.bbc.com/news/world-asia-27480845
