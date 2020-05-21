@@ -1,0 +1,17 @@
+---
+tweet:
+  status: |
+    Thai Royal Army, led by Gen. Sonthi, staged a coup while ex-PM Thaksin
+    Shinawatra was in NY for UN general assembly. Prem Tinsulanonda met King
+    Bhumibol before the coup. Thaksin declared a state of emergency.
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  lang: en
+  timestamp: 2006-09-19
+  sources:
+    - https://www.reuters.com/article/us-thailand-coup/timeline-thailand-since-2006-coup-ousted-thaksin-idUSBKK5906620080228
+    - https://www.theguardian.com/world/2006/sep/19/thailand
+  authors:
+    - "@ytrombik"

@@ -1,0 +1,17 @@
+---
+tweet:
+  status: |
+    ソンティ将軍率いるタイ陸軍がクーデターを起こす。タクシン元首相は国連会議出
+    席のためにNYを訪問していた。枢密院議長のプレムはクーデター直前に国王に面会
+    する。タクシンは緊急事態を宣言する。
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  lang: ja
+  timestamp: 2006-09-19
+  sources:
+    - https://www.reuters.com/article/us-thailand-coup/timeline-thailand-since-2006-coup-ousted-thaksin-idUSBKK5906620080228
+    - https://www.theguardian.com/world/2006/sep/19/thailand
+  authors:
+    - "@ytrombik"

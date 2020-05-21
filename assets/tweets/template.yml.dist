@@ -6,6 +6,7 @@ tweet:
   media_files: []
 
 meta:
+  lang: en
   timestamp: 2020-04-28T07:27:55+07:00
   sources:
     - https://example.org

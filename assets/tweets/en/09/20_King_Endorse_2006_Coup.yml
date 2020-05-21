@@ -1,0 +1,16 @@
+---
+tweet:
+  status: |
+    At 20:17, Gen, Sonthi announced that King Bhumibol endorsed 2006 coup. All
+    successful coup in his reign have been endorsed by the king. 1981 and 1985
+    coup, which the king did not endorsed, failed after a few days.
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  lang: en
+  timestamp: 2006-09-20T20:17:00
+  sources:
+    - http://news.bbc.co.uk/2/hi/asia-pacific/5365362.stm
+  authors:
+    - "@ytrombik"
