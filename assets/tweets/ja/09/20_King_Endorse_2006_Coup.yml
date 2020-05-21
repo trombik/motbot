@@ -1,0 +1,16 @@
+---
+tweet:
+  status: |
+    20時17分、プミポン国王が2006年クーデターを承認したと、ソンティ将軍がテレビ
+    放送で明らかにした。国王は在位中の成功したクーデターすべてに承認を与えてい
+    る。1981年および1985年のクーデターは承認せず、どちらも失敗に終わっている。
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  lang: ja
+  timestamp: 2006-09-20T20:17:00
+  sources:
+    - http://news.bbc.co.uk/2/hi/asia-pacific/5365362.stm
+  authors:
+    - "@ytrombik"
