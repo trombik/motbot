@@ -1,0 +1,17 @@
+---
+tweet:
+  status: |
+    Thousands protesters organised by the Liberation Youth group gathered at
+    Democracy Monument. The largest demo after 2014 Thai coup d'état. They
+    demanded new constitution, new election, and an end to harassing
+    people.
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  lang: en
+  timestamp: 2020-07-18T15:00:00+07:00
+  sources:
+    - https://www.theguardian.com/world/2020/jul/18/thousands-of-anti-government-protesters-rally-in-thailands-capital
+  authors:
+    - "@ytrombik"
