@@ -1,0 +1,16 @@
+---
+tweet:
+  status: |
+    Thousands students at Thammasat University made 10 demands, including
+    investigation of state murders, monarchy reform, and abolish of Article
+    112, or Lèse-majesté.
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  lang: en
+  timestamp: 2020-08-10
+  sources:
+    - https://prachatai.com/english/node/8717
+  authors:
+    - "@ytrombik"
