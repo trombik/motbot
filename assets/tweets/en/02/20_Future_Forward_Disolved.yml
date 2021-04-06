@@ -1,0 +1,16 @@
+---
+tweet:
+  status: |
+    The Constitutional Court ordered thet Future Forward disolved, ruling that
+    the loan by Thanathorn party leader was illegal. The court has disolved
+    many parties after 2006 coup, which ousted Thaksin Shinawatra.
+  possibly_sensitive: false
+  media_files: []
+
+meta:
+  lang: en
+  timestamp: 2020-02-21
+  sources:
+    - https://www.thaipbsworld.com/charter-court-dissolves-future-forward-slaps-political-ban-on-its-executives/
+  authors:
+    - "@ytrombik"
