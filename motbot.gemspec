@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "twitter", "~> 7.0"
   spec.add_runtime_dependency "twitter-text", "~> 3.1.0"
   spec.add_runtime_dependency "omniauth-twitter", "~> 1.4.0"
-  spec.add_runtime_dependency "sinatra", "~> 2.0.8"
+  spec.add_runtime_dependency "sinatra", ">= 2.0.8", "< 2.3.0"
   spec.add_runtime_dependency "rchardet", "~> 1.8.0"
 
   spec.add_development_dependency "bundler", "~> 2.0"
